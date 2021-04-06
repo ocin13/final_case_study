@@ -1,0 +1,199 @@
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../shared/icons/3022339-hospital/png/hospital.png" type="image/png" sizes="16x16">
+    <!--css files refrences-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="../../shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="../home/css/navbar.css" rel="stylesheet" />
+    <!--html to pdf cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <title>NanoCare</title>
+</head>
+<body>
+    <div class="container-fluid mx-0 px-0">
+        <!--********navbar_starts***********-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid px-md-5">
+              <a class="navbar-brand" href="../home/index.html"><img src="../../shared/icons/3022339-hospital/png/hospital.png" width="50px" height="50px"/> <strong>NanoCare</strong></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="pt-2">
+                  <li><a href="#" id="sideMenuBtn"><i class="fa fa-bars"></i></a></li>
+                </ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="../../shared/icons/3022339-hospital/png/050-surgeon.png" width="25px" height="25px" style="border-radius: 50%;"/>
+                      admin
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="../profile/index.html">my profile</a></li>
+                      <li><a class="dropdown-item" href="../profile/index.html">edit profile</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../account/login.html">log out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <!--********navbar_ends*************-->
+        <div class="row">
+            <div class="col-8 col-md-2 py-3" id="side-menu-box">
+                <!--********side_menu*************-->
+                <nav class="nav side-menu flex-column pl-3" id="side-menu">
+                  <a class="nav-link active py-3" aria-current="page" href="../home/index.html"><i class="fa fa-tachometer"></i> dashboard</a>
+                  <a class="nav-link py-3" href="../doctors/index.html"><i class="fa fa-user-md"></i>    doctors</a>
+                  <a class="nav-link py-3" href="../patients/index.html"><i class="fa fa-user"></i>    patients</a>
+                  <a class="nav-link py-3" href="../appointements/index.html"><i class="fa fa-calendar"></i>    appointements</a>
+                  <a class="nav-link py-3" href="../departments/index.html"><i class="fa fa-building"></i>    departments</a>
+                  <a class="nav-link py-3" href="../employees/index.html"><i class="fa fa-users"></i>    employees</a>
+                  <a class="nav-link py-3" href="../accounts/index.html"><i class="fa fa-credit-card"></i>    accounts</a>
+                  <a class="nav-link py-3" href="../payments/index.html"><i class="fa fa-university"></i>    payment</a>
+                  <a class="nav-link py-3" href="../settings/index.html"><i class="fa fa-tasks"></i>    settings</a>
+                </nav>
+                <!--********end_sidemenu*************-->
+            </div>
+            <div class="col-12 col-md-10 py-5 dashboard">
+              <div class="row">
+                <div class="col-6 col-md-10">
+                  <h3>invoice</h3>
+                </div>
+                <div class="col-6 col-md-2 ">
+                  <button class="btn btn-success py-2 px-3" id="downloadBtn" onclick=""><i class="fa fa-download"></i> download</button>
+                </div>
+              </div>
+              <div class="container-fluid invoice py-5">
+                <div class="row py-5">
+                    <div class="col-2 d-none d-md-block">
+                        <img src="../../shared/icons/3022339-hospital/png/hospital.png" alt="NanoCare logo" height="80px" width="80px">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h3>NanoCare</h3>
+                        <h5>invoice</h5>
+                    </div>
+                    <div class="col-12 col-md-4 text-end">
+                        <p class="companyAdd">34 main ave building 02 <br> jersey city nJ <br> United states of america</p>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-12 col-md-3" >
+                        <h6>billed to:</h6>
+                        <p class="patientAdd">56 main ave apt 03 \n jersey city NJ \n united states</p>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>issue date:</h5>
+                                <p class="issueDate">20-08-2020</p>
+                            </div>
+                            <div class="col-12">
+                                <h5>due date:</h5>
+                                <p class="dueDate">12-15-2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h4>invoice number</h4>
+                        <h6 class="invoiceId">INV1156548</h6>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h4>amout due</h4>
+                        <h1 class="invoiceAmout">$5500</h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="row py-5">
+                    <div class="col-12 col-md-3" >
+                        <h6>bill for:</h6>
+                        <ul>
+                            <li><strong>first name:</strong> <sapn class="patientFirstName">patient01</span></li>
+                            <li><strong>last name: </strong><span class="patientLastName">patient01</span></li>
+                            <li><strong>date of birth: </strong><span class="patientDOB">12-12-2012</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>entre date:</h5>
+                                <p class="entreDate">20-08-2020</p>
+                            </div>
+                            <div class="col-12">
+                                <h5>decharge date:</h5>
+                                <p class="dechargeDate">12-15-2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h4>patient id:</h4>
+                        <h6 class="patiendId">INV1156548</h6>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h6>patient phone</h6>
+                        <p class="patientPhone">551 226 8794</p>
+                        <h6>patient Email</h6>
+                        <p class="patientPhone">info@patient.com</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row py-5">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                          </tr>
+                        </thead>
+                        <tbody class="invoiceTable">
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="row text-center">
+                    <h2 class="py-3">thank you</h2>
+                    <p>for queries concerning this invoice please conatct:</p>
+                    <p><i class="fa fa-phone"></i>  phone: + 1 226 447 8897</p>
+                    <p><i class="fa fa-envelope"></i>   Email: info@nanocare.com</p>
+                </div>
+              </div>
+            </div>
+        </div>  
+        
+
+    </div>
+    <!--bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <!--chart maker-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+    <script src="../home/js/navbar.js"></script>
+    <script src="./js/scripts.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+}
+#addDocBtn, #validateDocBtn{
+    background-color: rgb(37, 221, 160);
+    color: #fff;
+    transition: all ease-in-out 400ms;
+    border: none;
+    border-radius: 80px;
+}
+#addDocBtn:hover, #validateDocBtn:hover{
+    background-color:rgb(14, 180, 125);
+    cursor: pointer;
+}

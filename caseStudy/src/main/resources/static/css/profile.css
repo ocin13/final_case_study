@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+}
+#updateBtn,#backBtn{
+    background-color: rgb(37, 221, 160);
+    color: #fff;
+    transition: all ease-in-out 400ms;
+    border: none;
+    border-radius: 80px;
+}
+#updateBtn:hover,#backBtn:hover{
+    background-color:rgb(14, 180, 125);
+    cursor: pointer;
+}

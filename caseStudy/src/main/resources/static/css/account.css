@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+p,span,label{
+    text-transform: capitalize;
+}
+
+.form-box{
+    border-radius: 10px;
+    border: 1px solid rgb(202, 200, 200);
+    box-shadow: 3px 3px 5px rgb(212, 211, 211);
+}
+#accountBtn{
+    border: none;
+    background-color: rgb(5, 148, 100);
+    color: white;
+    border-radius: 80px;
+    transition: all ease-in-out 400ms;
+    width: 60%;
+}
+#accountBtn:hover{
+    background-color: rgb(37, 221, 160);
+    cursor: pointer;
+}
+span > a{
+    text-decoration: none;
+}

@@ -1,0 +1,162 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../shared/icons/3022339-hospital/png/hospital.png" type="image/png" sizes="16x16">
+    <!--css files refrences-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="../../shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="../home/css/navbar.css" rel="stylesheet" />
+    <title>NanoCare</title>
+</head>
+<body>
+    <div class="container-fluid mx-0 px-0">
+        <!--********navbar_starts***********-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid px-md-5">
+              <a class="navbar-brand" href="../home/index.html"><img src="../../shared/icons/3022339-hospital/png/hospital.png" width="50px" height="50px"/> <strong>NanoCare</strong></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="pt-2">
+                  <li><a href="#" id="sideMenuBtn"><i class="fa fa-bars"></i></a></li>
+                </ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="../../shared/icons/3022339-hospital/png/050-surgeon.png" width="25px" height="25px" style="border-radius: 50%;"/>
+                      admin
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="../profile/index.html">my profile</a></li>
+                      <li><a class="dropdown-item" href="../profile/index.html">edit profile</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../account/login.html">log out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <!--********navbar_ends*************-->
+        <div class="row">
+            <div class="col-8 col-md-2 py-3" id="side-menu-box">
+                <!--********side_menu*************-->
+                <nav class="nav side-menu flex-column pl-3" id="side-menu">
+                  <a class="nav-link active py-3" aria-current="page" href="../home/index.html"><i class="fa fa-tachometer"></i> dashboard</a>
+                  <a class="nav-link py-3" href="../doctors/index.html"><i class="fa fa-user-md"></i>    doctors</a>
+                  <a class="nav-link py-3" href="../patients/index.html"><i class="fa fa-user"></i>    patients</a>
+                  <a class="nav-link py-3" href="../appointements/index.html"><i class="fa fa-calendar"></i>    appointements</a>
+                  <a class="nav-link py-3" href="../departments/index.html"><i class="fa fa-building"></i>    departments</a>
+                  <a class="nav-link py-3" href="../employees/index.html"><i class="fa fa-users"></i>    employees</a>
+                  <a class="nav-link py-3" href="../accounts/index.html"><i class="fa fa-credit-card"></i>    accounts</a>
+                  <a class="nav-link py-3" href="../payments/index.html"><i class="fa fa-university"></i>    payment</a>
+                  <a class="nav-link py-3" href="../settings/index.html"><i class="fa fa-tasks"></i>    settings</a>
+                </nav>
+                <!--********end_sidemenu*************-->
+            </div>
+            <div class="col-10 col-md-10 mx-auto p-md-5 dashboard">
+              <div class="row">
+                <h2>add employee</h2>
+            </div>
+            <div class="row py-5">
+                <form action="submit" class="row">
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeFirstName" class="form-label">first name</label>
+                        <input type="text" class="form-control" id="employeeFirstName"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeLastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="employeeLastName"  required/>
+                    </div>
+
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeUserName" class="form-label">user name</label>
+                        <input type="text" class="form-control" id="employeeUsername"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeEmail" class="form-label">email</label>
+                        <input type="email" class="form-control" id="employeeEmail"  required/>
+                    </div>
+
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeePassword" class="form-label">password</label>
+                        <input type="text" class="form-control" id="employeePassword"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeConfirmPassword" class="form-label">confirm password</label>
+                        <input type="text" class="form-control" id="employeeConfirmPassword"  required/>
+                    </div>
+
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeBirthDate" class="form-label">birth date</label>
+                        <input type="date" class="form-control" id="employeeBirthDate"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeegender" class="form-label">gender</label>
+                        <select class="form-select" aria-label="Select Gender" id="employeeGender">
+                            <option selected>Select Gender</option>
+                            <option value="male">male</option>
+                            <option value="femele">femele</option>
+                            <option value="unknown">unknown</option>
+                          </select>
+                    </div>
+
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeeAdress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="employeeAdress" placeholder="1234 Main St" required>
+                    </div>
+                      <div class="col-12 col-md-6 py-2">
+                        <label for="inputAddress2" class="form-label">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+                      </div>
+                      <div class="col-12 col-md-6 py-2">
+                        <label for="employeeCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="employeeCity" required>
+                      </div>
+                      <div class="col-6 col-md-4 py-2">
+                        <label for="employeeState" class="form-label">State</label>
+                        <input type="text" id="employeeState" class="form-control"  required/>
+                      </div>
+                      <div class="col-6 col-md-2 py-2">
+                        <label for="employeeZip" class="form-label">Zip</label>
+                        <input type="number" class="form-control" id="employeeZip" required>
+                      </div>
+                      <div class="col-12 col-md-6 py-2">
+                        <label for="employeePhone" class="form-label">phone</label>
+                        <input type="tel" class="form-control" id="employeePhone"  required/>
+                    </div>
+                    <div class="col-12 col-md-6 py-2">
+                        <label for="employeepicture" class="form-label">profile picture</label>
+                        <input type="file" class="form-control" id="employeepicture"  required/>
+                    </div>
+                      <div class="col-12 py-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="acceptCheck">
+                          <label class="form-check-label" for="acceptCheck">
+                            confirm the new employee
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-12 py-2">
+                        <button type="submit" class="btn btn-primary" id="confirmEmpBtn">Confirm</button>
+                      </div>
+                </form>
+            </div>
+        </div>  
+        
+
+    </div>
+    <!--bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <!--chart maker-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="./js/scripts.js"></script>
+    <script src="../home/js/navbar.js"></script>
+  </body>
+</html>

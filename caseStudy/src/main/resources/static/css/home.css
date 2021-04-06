@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+
+.navbar-nav{
+    margin-left: auto;
+}
+.dropdown-menu{
+    background-color: #212529;;
+    color: #fff;
+}
+.dropdown-menu > li > a{
+    color: #fff;
+}
+nav > a{
+    text-decoration: none;
+    color: #000;
+    transition: all ease-in-out 400ms;
+}
+nav > a > i{
+    font-size: 1.6em;
+}
+nav > a:hover{
+    color: rgb(37, 221, 160);
+}
+.info{
+    border: 1px solid rgb(240, 233, 233);
+    border-radius: 5px;
+    width: 95%;
+}
+.summary > div:nth-child(1) > div > div > h1 > i {
+    color: rgb(9, 106, 216);
+}
+.summary > div:nth-child(1) > div > div > .label-job-title{
+    background-color: rgb(9, 106, 216);
+    padding: 0 7px;
+    color: #fff;
+    border-radius: 5px;
+}
+.summary > div:nth-child(2) > div > div > h1 > i {
+    color: rgb(75, 216, 9);
+}
+.summary > div:nth-child(2) > div > div > .label-job-title{
+    background-color: rgb(75, 216, 9);
+    padding: 0 7px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.summary > div:nth-child(3) > div > div > h1 > i {
+    color: rgb(155, 156, 154);
+}
+.summary > div:nth-child(3) > div > div > .label-job-title{
+    background-color: rgb(155, 156, 154);
+    padding: 0 7px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.summary > div:nth-child(4) > div > div > h1 > i {
+    color: rgb(243, 172, 40);
+}
+.summary > div:nth-child(4) > div > div > .label-job-title{
+    background-color: rgb(243, 172, 40);
+    padding: 0 7px;
+    color: #fff;
+    border-radius: 5px;
+}
+.side-menu{
+    position: fixed;
+    transition: all ease-in-out 600ms;
+}
+.doctors-list, .appointement-list, .newPatientList{
+    overflow-y: scroll;
+    height: 50vh;
+}
+#sideMenuBtn{
+    text-decoration: none;
+    color: #fff;
+}
+#sideMenuBtn i{
+    font-size: 1.6em;
+}
+#dahsboard{
+    transition: all ease-in-out 1000ms;
+}
