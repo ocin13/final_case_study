@@ -43,26 +43,32 @@ public class HomeController {
 	@Autowired
 	CompanyServiceImp cs;
 	
-	//display the home page
+		//display the home page
 		@RequestMapping("/home")
 		public String showhome(){
 			return "home";
 		}
+		//display the welcome page and get the current user object from the session
 		@RequestMapping("/welcome")
 		public ModelAndView displayWelcomePage(HttpSession session) {
 			
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			Object profile;
+			//if user is PATIENT get the user properties from patients table
 			if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("PATIENT"))) {
 	        	Patient patient = ps.getPatientByUserName(auth.getName()).get(0);
 	        	profile = patient;
 	        	
 	        	
-	        }else if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("DOCTOR"))) {
+	        }
+			//if user is DOCTOR get the user properties from doctors table
+			else if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("DOCTOR"))) {
 	        	Doctor doctor = ds.getDoctorByUserName(auth.getName()).get(0);
 	        	profile = doctor;
 	        	
-	        }else if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("EMPLOYEE"))) {
+	        }
+			//if user is EMPLOYEE get the user properties from employees table
+			else if(auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("EMPLOYEE"))) {
 	        	Employee employee = es.getEmployeeByAccountUserName(auth.getName()).get(0);
 	        	profile = employee;
 	        	
@@ -72,6 +78,8 @@ public class HomeController {
 			session.setAttribute("profile", profile);
 			return new ModelAndView("welcome");
 		}
+		
+		//display the settings page
 		@RequestMapping("/settings")
 		public ModelAndView settings() throws Exception {
 			ModelAndView mav =  new ModelAndView("settings");
@@ -79,6 +87,7 @@ public class HomeController {
 			mav.addObject("company", company);
 			return mav;
 		}
+		//save new settings 
 		@RequestMapping("/saveSettings")
 		public ModelAndView saveSettings(@ModelAttribute Company company) throws Exception {
 			ModelAndView mav =  new ModelAndView("settings");

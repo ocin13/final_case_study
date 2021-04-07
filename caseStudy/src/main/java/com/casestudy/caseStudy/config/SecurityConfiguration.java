@@ -26,13 +26,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-        		.antMatchers("/home","/doctors","addDoctor","editDoctor/*", "deleteDoctor/*",
-        				"/employees","addEmployee","editEmployee/*", "deleteEmployee/*",
-        				"/departments","addDepartment","editDepartment/*", "deleteDepartment/*",
-        				"/patients","addPatient","editPatient/*", "deletePatient/*",
-        				"/settings","deleteAppointment","editAppointment", "/payments","/accounts").hasAuthority("ADMIN")
+        		.antMatchers("/home","/doctors","/addDoctor","/editDoctor**", "/deleteDoctor**",
+        				"/employees","addEmployee","/editEmployee**", "/deleteEmployee**",
+        				"/departments","/addDepartment","/editDepartment**", "/deleteDepartment**",
+        				"/patients","/addPatient","/editPatient**", "/deletePatient**",
+        				"/settings","addAppointment","/deleteAppointment**","/editAppointment**","/payments","/accounts").hasAuthority("ADMIN")
                 .antMatchers("/welcome","/profile","/editProfile",
-                		"/appointments","addAppointment").hasAnyAuthority("ADMIN", "USER", "DOCTOR","PATIENT")
+                		"/appointments","/appointmentByDep**","/reserveAppointment**").hasAnyAuthority("ADMIN", "USER", "DOCTOR","PATIENT")
                 .antMatchers("/", "/login","/logout").permitAll()
                 .and()
 		        .formLogin().loginPage("/login")

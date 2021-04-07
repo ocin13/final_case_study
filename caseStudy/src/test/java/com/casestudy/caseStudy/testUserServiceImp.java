@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +24,7 @@ class testUserServiceImp {
 	
 	
 	@Test
+	@DisplayName(value = "insert new User obejct to the database and check the return value")
 	void testAddNewUser() {
 		User uTest = new User("usename","user@gmail.com","user123456",true,"USER");
 		Assertions.assertTrue(us.addNewUser(uTest));

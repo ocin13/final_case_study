@@ -17,9 +17,10 @@
            
                 <!--********side_menu*************-->
                 <nav class="nav side-menu flex-column pl-3" id="side-menu">
-         
+                <a class="nav-link active py-3" aria-current="page" href="welcome"><i class="fa fa-home"></i> welcome</a>
+         		<sec:authorize url="/home">
 				    <a class="nav-link active py-3" aria-current="page" href="home"><i class="fa fa-tachometer"></i> dashboard</a>
-				    
+				   </sec:authorize>
 				    
 				
 				 <sec:authorize url="/doctors">

@@ -43,6 +43,7 @@ import com.casestudy.caseStudy.services.UserServiceImp;
 @Controller
 public class DoctorsController {
 	
+	//create file to store uploaded files
 	public static String uploadDirectory = System.getProperty("user.dir") + "/uploads";
 	
 	@Autowired
@@ -77,6 +78,7 @@ public class DoctorsController {
 				@RequestParam("state")  String state,@RequestParam("zip")  Integer zip,
 				@RequestParam("phone")  Long phone,final @RequestParam("file") MultipartFile file, BindingResult bindingResult) {
 			    ModelAndView mav = new ModelAndView("doctor_form");
+			    //check if there is any errors related to fields format
 			    if (bindingResult.hasErrors()) {
 			    	mav = new ModelAndView("doctor_form");
 					return mav;
@@ -85,7 +87,7 @@ public class DoctorsController {
 					try {
 						HttpHeaders headers = new HttpHeaders();
 						
-						
+						//extract file properties
 						String fileName = file.getOriginalFilename();
 						String filePath = Paths.get(uploadDirectory, fileName).toString();
 						String fileType = file.getContentType();
@@ -97,7 +99,9 @@ public class DoctorsController {
 						BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(filePath)));
 						stream.write(file.getBytes());
 						stream.close();
-		
+						
+						
+						//set new doctor
 						doctor.setFirstName(firstName);
 						doctor.setLastName(lastName);
 						doctor.setSpeciality(speciality);
@@ -109,6 +113,7 @@ public class DoctorsController {
 						doctor.setFileType(fileType);
 						doctor.setFileSize(fileSize);
 						
+						//set new user and address object 
 						User newUser = new User(userName,email,password,true,"DOCTOR");
 						Address newAddress = new Address(street,apt,city,state,zip);
 						as.addNewAddress(newAddress);
@@ -117,8 +122,9 @@ public class DoctorsController {
 						doctor.setAddress(newAddress);
 						
 						
-						
+						//save doctor to the database
 						boolean status = ds.addNewDoctor(doctor);
+						//check if it has been saved successfully
 						if (status) {
 							
 							headers.add("Employe Saved With Image - ", fileName);

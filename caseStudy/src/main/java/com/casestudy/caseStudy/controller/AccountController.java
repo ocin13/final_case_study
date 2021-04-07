@@ -17,7 +17,7 @@ import com.casestudy.caseStudy.services.UserServiceImp;
 public class AccountController {
 	@Autowired
 	UserServiceImp us;
-	//display a list of all existing accounts in the data base
+	//***display a list of all existing accounts in the data base****//
 	@RequestMapping("/accounts")
 	public ModelAndView showAccounts() {
 		ModelAndView mav = new ModelAndView("accounts");

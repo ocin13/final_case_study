@@ -52,15 +52,41 @@
 					 <h5 class="text-info">you have an appointment on: ${reservedApp.date } at: ${reservedApp.time } with: dr.${reservedApp.doctor.lastName } ${reservedApp.doctor.firstName }</h5>
 					</c:if>
 				</div>
+				<div class="row py-3">
+					<div class="col-12 col-md-11">
+						<form action="appointmentByDep" method="GET" class="row">
+							<div class="col-12 col-md-3">
+								<label for="appointementDep" class="form-label">search by departement name:</label>
+							</div>
+							 <div class="col-12 col-md-8">
+		                        <select name="depName" class="form-select"  id="appointementDep"   required>
+							        <c:forEach items="${departmentsList}" var="dep">
+							            <option value="${dep.name}">${dep.name}</option>
+							        </c:forEach>
+							    </select>
+		                       
+		                    </div>
+		                    <div class="col-12 col-md-1">
+		                    	<button class="btn btn-primary" type="submit">Search</button>
+		                    	
+		                    </div>
+						</form>
+					</div>
+					<div class="col-1">
+						<button class="btn btn-primary" type="submit"><a href="appointments" style="text-decoration:none;color:white;"">Reset</a></button>
+					</div>
+				</div>
 				<div class="row">
 					<c:if test="${appointmentsList.isEmpty() == false }">
 						<table class="table">
 							<thead>
 								<tr>
 									<th scope="col">#</th>
+								<sec:authorize access="hasAuthority('ADMIN')">	
 									<th scope="col">Patient Name</th>
-									<th scope="col">Doctor Name</th>
 									<th scope="col">Email</th>
+								</sec:authorize>	
+									<th scope="col">Doctor Name</th>
 									<th scope="col">Department</th>
 									
 									<th scope="col">date</th>
@@ -72,9 +98,11 @@
 								<c:forEach items="${appointmentsList}" var="app">
 									<tr>
 										<th scope="row">${app.aptId }</th>
+									<sec:authorize access="hasAuthority('ADMIN')">
 										<td>${app.userName}</td>
-										<td>${doctor.firstName} ${app.doctor.firstName} ${app.doctor.lastName }</td>
 										<td>${app.email}</td>
+									</sec:authorize>	
+										<td>${doctor.firstName} ${app.doctor.firstName} ${app.doctor.lastName }</td>
 										<td>${app.depName}</td>
 										<td>${app.date}</td>
 										<td>${app.time}</td>

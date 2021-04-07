@@ -23,7 +23,7 @@ public class DepartmentController {
 
 	@Autowired
 	DepartmentService ds;
-	
+	//show list of all departments present in the database
 	@RequestMapping("/departments")
 	public ModelAndView showDepartments() {
 		ModelAndView mav = new ModelAndView("departments");
@@ -37,16 +37,19 @@ public class DepartmentController {
 		return mav;
 	}
 	
+	//show department form
 	@RequestMapping("/newDepartment")
 	public ModelAndView showDepartmentForm() {
 		ModelAndView mav = new ModelAndView("department_form");
 		return mav;
 	}
 	
+	
+	//create new department 
 	@RequestMapping(value="addDepartment", method=RequestMethod.POST)
 	public ModelAndView addNewDep(@ModelAttribute @Valid Department department, BindingResult bindingResult) {
 		ModelAndView mav = new ModelAndView("department_form");
-		
+		//check if there is any bad formated fields
 		if(bindingResult.hasErrors()) {
 			if(bindingResult.getFieldError("name") != null) {
 			mav.addObject("nameError", bindingResult.getFieldError("name").getDefaultMessage());
@@ -64,6 +67,8 @@ public class DepartmentController {
 		return mav;
 	}
 	
+	
+	//show department edit form
 	@RequestMapping(value="editDepartment{depId}", method=RequestMethod.GET)
 	public ModelAndView showEditForm(@PathVariable("depId") Integer depId) {
 		ModelAndView mav = new ModelAndView("department_form");

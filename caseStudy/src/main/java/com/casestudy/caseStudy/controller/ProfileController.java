@@ -42,12 +42,12 @@ public class ProfileController {
 	@Autowired
 	AddressService as;
 	
-	
+	//display the profile page
 	@RequestMapping("/profile")
 	public ModelAndView showProfile(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("profile");
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+		
+		//authentication instance made available by spring security
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         
         Object profile;
@@ -71,6 +71,7 @@ public class ProfileController {
 		return mav;
 	}
 	
+	//edit profile information depending on the actual user object AUTHORITY
 	@RequestMapping("/edit_profile")
 	public ModelAndView showeditProfileForm(@RequestParam("firstName") String firstName,
 			@RequestParam("lastName")  String lastName,

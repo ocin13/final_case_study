@@ -44,7 +44,7 @@ public class EmployeeController {
 	@Autowired
 	AddressServiceImp as;
 	
-	//display Employees page
+	//display Employees on employees page
 		@RequestMapping("/employees")
 		public ModelAndView showEmployeesList() {
 			ModelAndView mav = new ModelAndView("employees");

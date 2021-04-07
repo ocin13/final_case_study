@@ -15,6 +15,8 @@ public class StatisticController {
 	@Autowired
 	StatisticsService ss;
 	
+	
+	//this populate the statistics object on the link: https://localhost:9000/statistics
 	@GetMapping("/statistics")
 	public Statistics sendStatisticsData() throws IOException {
 		return ss.getStatistics();
