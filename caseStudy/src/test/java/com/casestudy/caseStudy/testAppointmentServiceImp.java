@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -25,11 +28,21 @@ class testAppointmentServiceImp {
 	
 	List<Appointment> aList;
 	
+	
+	
 	@Test
 	void testAddNewAppointment() {
 		Appointment atest = new Appointment("djamal", ds.getDoctorById(1), "cardiology", "hoc1ne13dec@gmail.com",
 				"10:23", "10/03/2021", false);
 		Assertions.assertTrue(as.addNewAppointment(atest));
+	}
+	
+	@ParameterizedTest
+	@NullAndEmptySource
+	void testAddNewAppointmentFail(String input) {
+		Appointment atest = new Appointment("djamal", ds.getDoctorById(1), input, "hoc1ne13dec@gmail.com",
+				"10:23", "10/03/2021", false);
+		Assertions.assertFalse(as.addNewAppointment(atest));
 	}
 
 	@Test
@@ -43,10 +56,7 @@ class testAppointmentServiceImp {
 		Assertions.assertTrue(as.getAppointmentById(1) != null);
 	}
 
-//	@Test
-//	void testUpdateAppointmentById() {
-//		fail("Not yet implemented");
-//	}
+
 
 	@Test
 	void testDeleteAppointmentById() {

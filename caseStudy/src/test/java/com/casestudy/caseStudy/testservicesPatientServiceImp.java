@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -46,19 +48,17 @@ class testservicesPatientServiceImp {
 		Assertions.assertTrue(ps.getPatientById(1) != null);
 	}
 
-//	@Test
-//	void testUpdatePatientById() {
-//		fail("Not yet implemented");
-//	}
 //
-	@Test
-	void testDeletePatientById() {
-		Assertions.assertTrue(ps.deletePatientById(2));
+	@ParameterizedTest
+	@ValueSource(ints = {2})
+	void testDeletePatientById(Integer input) {
+		Assertions.assertTrue(ps.deletePatientById(input));
 	}
 
-	@Test
-	void testGetPatientByUserName() {
-		Assertions.assertTrue(ps.getPatientByUserName("djamal") != null);
+	@ParameterizedTest
+	@ValueSource(strings = {"djamal"})
+	void testGetPatientByUserName(String input) {
+		Assertions.assertTrue(ps.getPatientByUserName(input) != null);
 	}
 
 }

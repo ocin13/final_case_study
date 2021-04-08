@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,10 +23,17 @@ class testDepartmentServiceImp {
 	
 	List<Department> dList;
 	
-	@Test
-	void testAddNewDepartment() {
-		Department dTest = new Department("physical therapy", "we try to offer teh best servcies");
+	@ParameterizedTest
+	@ValueSource(strings = {"physsical therapy","urology"})
+	void testAddNewDepartment(String input) {
+		Department dTest = new Department(input, "we try to offer teh best servcies");
 		Assertions.assertTrue(ds.addNewDepartment(dTest));
+	}
+	@ParameterizedTest
+	@NullAndEmptySource
+	void testAddNewDepartmentFail(String input) {
+		Department dTest = new Department(input, "we try to offer teh best servcies");
+		Assertions.assertFalse(ds.addNewDepartment(dTest));
 	}
 
 	@Test
@@ -32,19 +42,18 @@ class testDepartmentServiceImp {
 		Assertions.assertFalse(dList.isEmpty());
 	}
 
-	@Test
-	void testGetDepartmentById() {
-		Assertions.assertTrue(ds.getDepartmentById(1) != null);
+	@ParameterizedTest
+	@ValueSource(ints = {1})
+	void testGetDepartmentById(Integer input) {
+		Assertions.assertTrue(ds.getDepartmentById(input) != null);
 	}
 
-//	@Test
-//	void testUpdateDepartmentById() {
-//		fail("Not yet implemented");
-//	}
 
-	@Test
-	void testDeleteDepartmentById() {
-		Assertions.assertTrue(ds.deleteDepartmentById(6));
+
+	@ParameterizedTest
+	@ValueSource(ints = {6})
+	void testDeleteDepartmentById(Integer input) {
+		Assertions.assertTrue(ds.deleteDepartmentById(input));
 	}
 
 }

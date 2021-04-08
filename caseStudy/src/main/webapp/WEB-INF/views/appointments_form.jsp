@@ -80,7 +80,7 @@
                       
                   
                    <div class="col-12 py-2">
-                        <button type="submit" class="btn btn-primary" id="bookAppBtn">Book Appointement</button>
+                        <button type="submit" class="btn btn-primary" id="bookAppBtn">Create Appointement</button>
                       </div>
                 </form>
             </div>

@@ -38,7 +38,7 @@ public class Appointment {
 	@Column(name="depName_name")
 	private String depName;
 	
-	@Email
+	
 	@Column(name="email")
 	private String email;
 	
@@ -51,7 +51,7 @@ public class Appointment {
 	private String date;
 	
 	@NotNull
-	@Column(name="stutus")
+	@Column(name="status")
 	private boolean reserved;
 	
 	//default constructor

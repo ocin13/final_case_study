@@ -14,6 +14,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -71,33 +73,25 @@ class testDoctorServiceImp {
 		Assertions.assertFalse(docList.isEmpty());
 	}
 //
-	@Test
-	void testGetDoctorById() {
+	@ParameterizedTest
+	@ValueSource(ints = {1})
+	void testGetDoctorById(Integer input) {
 		
-		Assertions.assertTrue(ds.getDoctorById(1) != null);
+		Assertions.assertTrue(ds.getDoctorById(input) != null);
 	}
 //
-	@Test
-	void testUpdateDoctorById() {
-		Address testAdd = new Address("giles","apt02","jersey","nj",12345);
 
-		User testUser = new User("userTest2","test@gmail.com","test-2021",true,"USER");
-		//
-		Long phone = new Long(77777777);
-		Doctor d2 = new Doctor("testFn","testLn","cardiology","02/02/1999","femele",phone,"doctor1.PNG",
-				"C:\\Users\\15512\\dev\\casestudy-final-1.0.0\\case_study-main\\caseStudy\\uploads\\doctor1.PNG",
-				"image/png","417272",testAdd,testUser);
-		Assertions.assertTrue(ds.updateDoctorById(5, d2));
+//
+	@ParameterizedTest
+	@ValueSource(ints = {4})
+	void testDeleteDoctorById(Integer input) {
+		Assertions.assertTrue(ds.deleteDoctorById(input));
 	}
 //
-//	@Test
-//	void testDeleteDoctorById() {
-//		Assertions.assertTrue(ds.deleteDoctorById(4));
-//	}
-//
-	@Test
-	void testGetDoctorByUserName() {
-		Assertions.assertTrue(ds.getDoctorByUserName("turkia") != null);
+	@ParameterizedTest
+	@ValueSource(strings = {"turkia"})
+	void testGetDoctorByUserName(String input) {
+		Assertions.assertTrue(ds.getDoctorByUserName(input) != null);
 	}
 
 }
